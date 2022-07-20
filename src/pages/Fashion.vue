@@ -13,17 +13,21 @@
   </section>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useFakeStore } from "../store/fakeStore";
 import { storeToRefs } from "pinia";
 
 export default defineComponent({
   setup() {
-    const products = ref([]);
+    const products = ref<Object[]>([]);
     const { getAllProds } = storeToRefs(useFakeStore());
 
-    getAllProds.value.forEach((product) => {
+    type Product = {
+      category?: string;
+    };
+
+    getAllProds.value.forEach((product: Product) => {
       if (
         product.category === `men's clothing` ||
         product.category === `women's clothing`

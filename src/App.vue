@@ -16,9 +16,9 @@ export default defineComponent({
   setup() {
     const store = useFakeStore();
 
-    const loadProducts = async () => {
+    async function loadProducts() {
       await store.loadData();
-    };
+    }
 
     loadProducts();
   },
