@@ -143,6 +143,7 @@ header {
   left: 0;
   z-index: 99;
   margin: 0 auto;
+  height: 5rem;
 }
 .logo {
   margin-right: 13px;

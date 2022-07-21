@@ -1,16 +1,25 @@
 <template>
-  <div class="card lg:card-side bg-base-100 shadow-xl">
-    <figure>
-      <img :src="product.image" alt="Album" width="400" height="400" />
-    </figure>
-    <div class="card-body">
-      <h2 class="card-title">New album is released!</h2>
-      <p>Click the button to listen on Spotiwhy app.</p>
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary" @click="addCart">Cart</button>
+  <section>
+    <div class="card lg:card-side bg-base-100 shadow-xl">
+      <figure>
+        <img :src="product.image" alt="Album" width="300" height="300" />
+      </figure>
+      <div class="card-body">
+        <h2 class="card-title">{{ product.title }}</h2>
+        <p>{{ product.description }}</p>
+        <div class="card-actions justify-around">
+          <div class="alert shadow-lg">
+            <div>${{ product.price }}</div>
+            <div class="flex-none">
+              <button class="btn btn-sm btn-primary" @click="addCart">
+                Cart
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -33,9 +42,7 @@ export default defineComponent({
       price?: number;
     };
 
-    const { getAllProds, getCartProdsQuantity, getCartProds } = storeToRefs(
-      useFakeStore()
-    );
+    const { getAllProds, getCartProds } = storeToRefs(useFakeStore());
     const store = useFakeStore();
 
     const product = getAllProds.value.find((product: Product) => {
@@ -47,11 +54,15 @@ export default defineComponent({
         ...product,
         quantity: 1,
       });
-      console.log(getCartProdsQuantity.value);
-      console.log(getCartProds.value);
     }
 
     return { product, addCart };
   },
 });
 </script>
+
+<style scoped>
+.div-btn {
+  transform: none;
+}
+</style>

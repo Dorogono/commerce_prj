@@ -24,3 +24,15 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+section {
+  padding-top: 2rem;
+}
+
+.products__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+</style>

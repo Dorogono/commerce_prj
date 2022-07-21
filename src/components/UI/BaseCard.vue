@@ -1,17 +1,12 @@
 <template>
-  <router-link :to="url">
-    <div class="card w-96 bg-base-100 shadow-xl container-box">
-      <figure><img :src="imageURL" alt="Shoes" /></figure>
-      <div class="card-body">
-        <h2 class="card-title">
+  <router-link :to="url" class="container-box">
+    <div class="card bg-base-100">
+      <img :src="imageURL" alt="Shoes" />
+      <div class="card__body">
+        <div class="badge badge-outline">{{ category }}</div>
+        <h2 class="card__title">
           {{ title }}
         </h2>
-        <div class="badge badge-outline">{{ category }}</div>
-        <div class="stats shadow">
-          <div class="stat place-items-center">
-            <div class="stat-value">${{ price }}</div>
-          </div>
-        </div>
       </div>
     </div>
   </router-link>
@@ -46,8 +41,39 @@ export default defineComponent({
 <style scoped>
 .container-box {
   margin: 1rem;
+  height: 400px;
 }
 .container-box:hover {
   transform: scale(1.02);
+}
+.card {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background-color: #fff;
+}
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+  background-color: white;
+  border-bottom: 1px solid hsl(var(--b3));
+}
+.card__body {
+  color: black;
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80px;
+  justify-content: space-around;
+}
+.card__title {
+  text-align: center;
 }
 </style>

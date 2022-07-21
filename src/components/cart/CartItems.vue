@@ -1,14 +1,16 @@
 <template>
   <tr>
-    <td>
+    <td class="cart__product">
       <img :src="image" :alt="title" class="image-container" />
-      <div>{{ title }}</div>
+      <div class="badge">{{ title }}</div>
     </td>
     <td>${{ singleItemPrice }}</td>
     <td>
-      <button class="btn bg-base-300" @click="minusItemQuantity">-</button>
+      <button class="btn bg-neutral btn-xs" @click="minusItemQuantity">
+        -
+      </button>
       {{ quantity }}
-      <button class="btn bg-base-300" @click="addItemQuantity">+</button>
+      <button class="btn bg-neutral btn-xs" @click="addItemQuantity">+</button>
     </td>
   </tr>
 </template>
@@ -49,10 +51,11 @@ export default defineComponent({
 
 <style scoped>
 .image-container {
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
 }
-.btn {
-  color: black;
+.cart__product {
+  display: flex;
+  align-items: center;
 }
 </style>

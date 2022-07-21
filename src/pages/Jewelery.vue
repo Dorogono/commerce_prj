@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="products__container">
     <base-card
       v-for="pro in products"
       :key="pro.id"

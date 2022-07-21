@@ -1,7 +1,7 @@
 <template>
-  <section>
-    <base-carousel></base-carousel>
-    <div>
+  <div>
+    <base-carousel class="carousel-container"></base-carousel>
+    <section class="products__container">
       <base-card
         v-for="pro in products"
         :key="pro.id"
@@ -12,8 +12,8 @@
         :category="pro.category"
         :imageURL="pro.image"
       ></base-card>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <script lang="ts">
@@ -37,3 +37,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.carousel-container {
+  margin-top: -1rem;
+}
+</style>

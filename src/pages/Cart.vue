@@ -1,34 +1,34 @@
 <template>
-  <div class="overflow-x-auto">
-    <table class="table table-zebra w-full">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        <cart-items
-          v-for="prod in getCartProds"
-          :key="prod.id"
-          :id="prod.id"
-          :title="prod.title"
-          :quantity="prod.quantity"
-          :price="prod.price"
-          :image="prod.image"
-        ></cart-items>
-        <tr>
-          <td></td>
-          <td>${{ getCartProdsPrice }}</td>
-          <td>
-            {{ getCartProdsQuantity }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <section>
+    <div class="overflow-x-auto cart-table">
+      <table class="table table-zebra w-full">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <cart-items
+            v-for="prod in getCartProds"
+            :key="prod.id"
+            :id="prod.id"
+            :title="prod.title"
+            :quantity="prod.quantity"
+            :price="prod.price"
+            :image="prod.image"
+          ></cart-items>
+          <tr class="cart__total">
+            <td>Total</td>
+            <td>${{ getCartProdsPrice }}</td>
+            <td>{{ getCartProdsQuantity }}개</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 </template>
 
 <script lang="ts">
@@ -49,3 +49,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.cart-table {
+  margin-top: -1rem;
+}
+.cart__total {
+  color: hsl(var(--s));
+  font-size: 1.3rem;
+}
+</style>
