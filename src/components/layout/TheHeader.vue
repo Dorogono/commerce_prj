@@ -76,7 +76,7 @@
       <div class="form-control">
         <input type="text" placeholder="Search" class="input input-bordered" />
       </div>
-      <div class="dropdown dropdown-end">
+      <router-link to="/cart">
         <label tabindex="0" class="btn btn-ghost btn-circle">
           <div class="indicator">
             <svg
@@ -98,21 +98,7 @@
             </span>
           </div>
         </label>
-        <div
-          tabindex="0"
-          class="mt-3 card card-compact dropdown-content w-48 bg-info-content shadow"
-        >
-          <div class="card-body">
-            <span class="font-bold text-lg"
-              >{{ getCartProdsQuantity }} Items</span
-            >
-            <span class="text-info">Subtotal: ${{ getCartProdsPrice }}</span>
-            <div class="card-actions">
-              <button class="btn btn-primary btn-block">View cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      </router-link>
     </div>
   </header>
 </template>

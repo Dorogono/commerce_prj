@@ -5,6 +5,7 @@ import Fashion from "./pages/Fashion.vue";
 import Jewelery from "./pages/Jewelery.vue";
 import Electronics from "./pages/Electronics.vue";
 import Detail from "./pages/Detail.vue";
+import Cart from "./pages/Cart.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -39,6 +40,10 @@ const router = createRouter({
       path: "/electronics/:id",
       component: Detail,
       props: true,
+    },
+    {
+      path: "/cart",
+      component: Cart,
     },
   ],
 });
