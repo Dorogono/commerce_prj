@@ -2,7 +2,16 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
-  padding-top: 4rem;
+  padding: 0;
+  padding-top: 2rem;
+  height: 100%;
+}
+
+#app {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 15rem;
 }

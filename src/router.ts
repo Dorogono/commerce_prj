@@ -47,7 +47,7 @@ const router = createRouter({
       component: Cart,
     },
     {
-      path: "/:notFound(.*)",
+      path: "/:pathMatch(.*)",
       component: NotFound,
     },
   ],

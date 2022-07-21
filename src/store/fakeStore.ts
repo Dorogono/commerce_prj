@@ -27,7 +27,7 @@ export const useFakeStore = defineStore("fakeStore", () => {
   let totalPrice = ref<number>(0);
   let htmlMode = ref<string>("light");
 
-  async function loadData(): Promise<void> {
+  async function loadData() {
     const res = await fetch("https://fakestoreapi.com/products");
     const data = await res.json();
     products.value = data;
