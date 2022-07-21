@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar bg-neutral text-neutral-content">
+  <header class="navbar bg-neutral text-neutral-content" data-theme="light">
     <div class="flex-none logo">
       <router-link class="btn btn-ghost normal-case text-5xl" to="/">
         Doro
@@ -49,7 +49,7 @@
     <div class="flex-none gap-3">
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" />
+        <input type="checkbox" @click="toggleMode" />
 
         <!-- sun icon -->
         <svg
@@ -113,13 +113,25 @@ export default defineComponent({
     const { getCartProdsQuantity, getCartProdsPrice } = storeToRefs(
       useFakeStore()
     );
+    const store = useFakeStore();
+
     const select = ref<string>("all");
 
     function selected({ target }: any) {
       select.value = target.id;
     }
 
-    return { selected, select, getCartProdsQuantity, getCartProdsPrice };
+    function toggleMode() {
+      store.toggleMode();
+    }
+
+    return {
+      selected,
+      select,
+      getCartProdsQuantity,
+      getCartProdsPrice,
+      toggleMode,
+    };
   },
 });
 </script>

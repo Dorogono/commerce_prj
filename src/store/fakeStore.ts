@@ -25,8 +25,9 @@ export const useFakeStore = defineStore("fakeStore", () => {
   let cartProducts = ref<cartProduct[]>([]);
   let totalQuantity = ref<number>(0);
   let totalPrice = ref<number>(0);
+  let htmlMode = ref<string>("light");
 
-  async function loadData() {
+  async function loadData(): Promise<void> {
     const res = await fetch("https://fakestoreapi.com/products");
     const data = await res.json();
     products.value = data;
@@ -57,17 +58,25 @@ export const useFakeStore = defineStore("fakeStore", () => {
     }
   }
 
+  function toggleMode() {
+    if (htmlMode.value === "light") htmlMode.value = "dark";
+    else htmlMode.value = "light";
+  }
+
   const getAllProds = computed(() => products.value);
   const getCartProds = computed(() => cartProducts.value);
   const getCartProdsQuantity = computed(() => totalQuantity.value);
   const getCartProdsPrice = computed(() => totalPrice.value.toFixed(2));
+  const getMode = computed(() => htmlMode.value);
 
   return {
     loadData,
+    getMode,
     getAllProds,
     getCartProds,
     getCartProdsQuantity,
     getCartProdsPrice,
+    toggleMode,
     addCartProducts,
     removeCartProducts,
   };

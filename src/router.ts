@@ -6,6 +6,7 @@ import Jewelery from "./pages/Jewelery.vue";
 import Electronics from "./pages/Electronics.vue";
 import Detail from "./pages/Detail.vue";
 import Cart from "./pages/Cart.vue";
+import NotFound from "./pages/NotFound.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -44,6 +45,10 @@ const router = createRouter({
     {
       path: "/cart",
       component: Cart,
+    },
+    {
+      path: "/:notFound(.*)",
+      component: NotFound,
     },
   ],
 });
