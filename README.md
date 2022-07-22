@@ -1,6 +1,6 @@
 # E-Commerce SPA 프로젝트
 
-## [Demo Site](https://vue-coach-e880b.web.app/)
+## [프로젝트 보러가기](https://vue-coach-e880b.web.app/)
 
 [FAKE STORE API](https://fakestoreapi.com/)를 사용한 e-commerce 토이 프로젝트입니다.
 
