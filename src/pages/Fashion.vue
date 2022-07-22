@@ -20,21 +20,24 @@ import { storeToRefs } from "pinia";
 
 export default defineComponent({
   setup() {
-    const products = ref<Object[]>([]);
+    const products = ref<any>([]);
     const { getAllProds } = storeToRefs(useFakeStore());
 
     type Product = {
+      id?: number;
       category?: string;
     };
 
-    getAllProds.value.forEach((product: Product) => {
-      if (
-        product.category === `men's clothing` ||
-        product.category === `women's clothing`
-      ) {
-        products.value.push(product);
-      }
-    });
+    if (getAllProds.value.length > 0) {
+      getAllProds.value.forEach((product: Product) => {
+        if (
+          product.category === `men's clothing` ||
+          product.category === `women's clothing`
+        ) {
+          products.value.push(product);
+        }
+      });
+    }
 
     return { products };
   },

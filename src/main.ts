@@ -5,7 +5,7 @@ import pinia from "./store/index";
 import App from "./App.vue";
 
 import "./styles/style.css";
-import "./styles/app.css";
+import "./styles/tailwind.css";
 
 import BaseCard from "./components/UI/BaseCard.vue";
 import BaseCarousel from "./components/UI/BaseCarousel.vue";

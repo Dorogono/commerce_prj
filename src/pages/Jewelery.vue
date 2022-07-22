@@ -20,7 +20,7 @@ import { storeToRefs } from "pinia";
 
 export default defineComponent({
   setup() {
-    const products = ref<Object[]>([]);
+    const products = ref<any>([]);
     const { getAllProds } = storeToRefs(useFakeStore());
 
     type Product = {

@@ -42,12 +42,12 @@ export default defineComponent({
       price?: number;
     };
 
-    const { getAllProds, getCartProds } = storeToRefs(useFakeStore());
+    const { getAllProds } = storeToRefs(useFakeStore());
     const store = useFakeStore();
 
-    const product = getAllProds.value.find((product: Product) => {
-      return product.id === prodId;
-    });
+    const product: any = getAllProds.value.find(
+      (product: any) => product.id === prodId
+    );
 
     function addCart() {
       store.addCartProducts({
@@ -60,9 +60,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.div-btn {
-  transform: none;
-}
-</style>

@@ -1,14 +1,14 @@
 <template>
   <section class="products__container">
     <base-card
-      v-for="pro in products"
-      :key="pro.id"
-      :id="pro.id"
-      :title="pro.title"
-      :price="pro.price"
-      :description="pro.description"
-      :category="pro.category"
-      :imageURL="pro.image"
+      v-for="prod in products"
+      :key="prod.id"
+      :id="prod.id"
+      :title="prod.title"
+      :price="prod.price"
+      :description="prod.description"
+      :category="prod.category"
+      :imageURL="prod.image"
     ></base-card>
   </section>
 </template>
@@ -20,11 +20,16 @@ import { storeToRefs } from "pinia";
 
 export default defineComponent({
   setup() {
-    const products = ref<Object[]>([]);
+    const products = ref<any>([]);
     const { getAllProds } = storeToRefs(useFakeStore());
 
     type Product = {
       category?: string;
+      id?: number;
+      title?: string;
+      price?: number;
+      description?: string;
+      image?: string;
     };
 
     getAllProds.value.forEach((product: Product) => {
